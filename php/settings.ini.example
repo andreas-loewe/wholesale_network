@@ -1,0 +1,47 @@
+[Braintree]
+merchant_id = your_merchant_id
+public_key = your_public_key
+private_key = your_private_key
+environment = sandbox ;sandbox | production
+
+
+[Database]
+host = database IP address
+user = database user name
+pass = database password
+;this system assumes use of a godaddy-hosted database, so the database name is the same as the user name
+
+
+[General Settings]
+token_url = http://localhost/wholesale/index.html#/token_parser
+domainRoot = http://localhost/wholesale
+
+
+[Recaptcha]
+site_key = your_google_assigned_site_key
+secret_key = your_google_assigned_secret_key
+endpoint = https://www.google.com/recaptcha/api/siteverify
+
+
+[SMTP]
+host = smtpout.secureserver.net
+port = 25
+auth = true
+username = yourEmail@somesite.com
+password = your_secret_password
+localhost = localhost
+debug = false
+persist = true
+
+
+[Security]
+delete_tokens_after_X_days = 14
+
+
+[State Transition Settings]
+advertising_length_in_days = 5
+response_rate_to_satisfy_obligation = 90
+keep_open_X_days_after_conclusion = 14
+email_limit_for_unkown_state = 3
+
+
