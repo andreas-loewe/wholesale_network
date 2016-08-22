@@ -1,0 +1,115 @@
+<div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>Wholesale Buyers List</h1>
+                    <p>You have found the wholesale buyers list. Members of this list receive exclusive e-mails containing wholesale real estate deals.</p>
+                </div>
+                <div class="col-xs-12">
+                    <div class="jumbotron">
+                        <div class="row">
+                            <div class="col-xs-6">
+                               <h3>See Exclusive Wholesale Property Deals</h3>
+                                     <ul class="list-group">
+                                    <li class="list-group-item">
+                                        Real Estate Contracts for sale below market value.
+                                    </li>
+                                    <li class="list-group-item">
+                                        Immediate access to wholesalers across the USA.
+                                    </li>
+                                    <li class="list-group-item">
+                                        Deals sent straight to your inbox with secure links to property details.
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-xs-5 col-xs-offset-1">
+                                
+                                
+                                <form class="form form-horizontal" method="POST" action="php/add_buyer.php">
+                                    <div class="panel panel-danger" ng-show="errorText">
+                                        <div class="panel-heading"><b>Error</b></div>
+                                        <div class="panel-body">{{errorText}}</div>
+                                    </div>
+                                    <h3>Register Here</h3>
+                                    <div class="form-group">
+                                        <label>E-mail Address</label>
+                                        <input type="email" class="form-control" ng-model="email" ng-blur="show_recaptcha=(email!='')" name="email" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>What size deal could you handle if the deal closed today:</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">$</div>
+                                            <input type="number" class="form-control" min="50000" max="1000000" placeholder="(your biggest cash deal)" ng-model="cash" name="cash" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <recaptcha-form ng-show="show_recaptcha"></recaptcha-form>
+                                    </div>
+                                    <div class="hidden">
+                                        <input name="page_url" ng-model="currentPage" type="text" />
+                                    </div>
+                                    <div class="btn btn-primary" ng-click='submit()' ng-disabled="recaptchaComplete==false || email == '' || cash == 0 || submitted">Start Sending Me Deals</div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-xs-12"><br/><br/><br/></div
+                        <div class="col-xs-12">
+                            <h4>Where can I see the current deals?</h4>
+                            <b>Deals are distributed by email only.</b><br/>Each email contains a secure link intended only for the registered user. You need to register your email address on this page to start receiving the money-making deals.
+                        </div>
+                        <h3>&nbsp;</h3>
+                    </div>
+
+                </div>
+                <div class="col-xs-12 col-md-8">
+                    <h3>Is this list for you?</h3>
+                    <p>This list is for you if:</p>
+                    <ul>
+                        <li>You have recently attended a Real Estate Investment (REI) seminar like FortuneBuilders, Rich Dad, or other.</li>
+                        <li>You are buying properties below market value.</li>
+                        <li>You are buying properties with CASH.</li>
+                    </ul>
+                    <p>Use this list to grow your real estate investment business more quickly. Get emails from wholesalers who have contracted to buy distressed property 
+                        from distressed homeowners. Wholesalers frequently do not have the money close on the deals they negotiate, so they sell the deal to you for a small profit 
+                        so that you can make an even bigger profit.</p>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <h3>How it works</h3>
+                    <p>Wholesalers, who have limited budgets, advertise for home 
+                        sellers and negotiate contracts below market value. Once under contract,
+                        they look to <b>assign</b> or <b>resell</b> their deals to 
+                        people like you who have enough cash to make the purchase 
+                        or the repairs, which are outside their budget. They 
+                        collect an assignment fee when they sell the deal do you.</p>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-xs-12 col-md-6 col-md-offset-3">
+
+                    <h3>Why this site exists</h3>
+                    <p>My wife, Tarah, and I attended a FortuneBuilders seminar, 
+                        and we immediately became enveloped in the wonder of real estate investing. 
+                        We got to work looking for people to sell us deals. 
+                        In the process of building our 
+                        list of wholesalers, we realized that it would be a lot easier 
+                        if wholesalers came to us instead.</p>
+                    <p>When we advertised for Wholesalers we met 
+                        lots of investors who had deals outside our area. It 
+                        was such a shame to say goodbye to those good deals and 
+                        see them go to waste.</p>
+                    <p>We had the idea that by creating a central list of people 
+                        like us, we could attract a lot of wholesalers with a lot 
+                        of deals, and even though those deals would not all be 
+                        right for us, we would be 
+                        copied on those deals that were right, and that would 
+                        be a valuable thing to help our business grow!</p>
+                    <p>Since we started this site, the list has grown tremendously. Because 
+                        of people like you, this site has become a must-stop location for 
+                        wholesalers who are looking to close quickly. By using this site 
+                        to send out a deal notice, they are instantly connected to thousands of 
+                        people like us who have a chance to review the deal and make an offer. As a result,
+                        now that we are on the list, Tarah and I no longer hunt for wholesale dealers. Now, 
+                        we sit back and check our e-mail and let the deals come to us!
+                    </p>
+                </div>
+            </div>
+        </div>

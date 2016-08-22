@@ -1,0 +1,37 @@
+{
+    "property": {
+        "sqft": 1690,
+        "beds": 2,
+        "baths": {
+            "full": 1,
+            "half": 0,
+            "three_quarter": 1
+        },
+        "deal_type": "assignment",
+        "atn": "382-261-06-00-6",
+        "street": "3208 Crest Drive; Bakersfield, CA 93306",
+        "pricing": {
+            "as_is": 190000,
+            "arv": 220000,
+            "repairs": 15000
+        },
+        "videoURLs": "",
+        "assignment_detail": {
+            "fee": 5000,
+            "contract_price": 75000,
+            "closing_date": "2016-09-10T07:00:00.000Z",
+            "escrow": {
+                "name": "Ticor Title",
+                "url": "http://www.ticortitle.com/"
+            }
+        },
+        "double_close_detail": {
+            "desired_price": null,
+            "alternative_action": "",
+            "bottom_price": 0
+        },
+        "about_seller": "",
+        "description": "",
+        "sellerEmail": "jaredclemence@gmail.com"
+    }
+}

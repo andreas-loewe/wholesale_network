@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Find a Buyer</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="lib/bootstrap-3.3.7-dist/css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
+        <link href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="lib/bootstrap-3.3.7-dist/js/bootstrap.js" type="text/javascript"></script>
+        
+        <script src="lib/carhartl-jquery-cookie-92b7715/jquery.cookie.js" type="text/javascript"></script>
+        <script src='lib/angular/angular.min.js' type='text/javascript'></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js" type="text/javascript"></script>
+        <script src="javascript/app.js" type="text/javascript"></script>
+        <script src="javascript/controller/PropertyDetailController.js" type="text/javascript"></script>
+    </head>
+    <body ng-app="WholesaleApp" ng-controller="PropertyDetailController">
+        <style type='text/css'>
+            .boxed{
+                border: solid 1px black;
+                box-shadow: 1px 2px black;
+                border-radius: 25px;
+                padding: 10px 15px;
+            }
+        </style>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>Property Detail</h1>
+                    <p>On this page you provide us the important details that will be shown to our 1000+ cash buyers. The buyers respond best to accuracy. They need to have the confidence that your deal is both real and good.</p>
+                    <div class='well'>
+                        <b>Tip:</b> Save this page, and come back every time you have a Wholesale Deal to sell.
+                    </div>
+                    <h3>Tips for Selling your deal fast</h3>
+                    <p>Deals that are picked up quickly have one or more of the following qualities:</p>
+                    <ul class="list-group">
+                        <li class="list-group-item">Home price plus estimated repair cost is 70% of ARV (After repair value), so buyers <b>hear and see</b> room for profit.</li>
+                        <li class="list-group-item">Video links to YouTube show a walk-through of the home outside and inside, so buyers <b>feel</b> like they have seen the property.</li>
+                        <li class="list-group-item">Cash is sent to a verifiable escrow company and NOT directly to seller, so buyers <b>trust</b> that they will not loose their cash investment.</li>
+                        <li class="list-group-item">Be thorough so that buyers have full information.</li>
+                    </ul>
+                    <div class='well'>
+                        <b>Tip:</b> Have a deal ready to sell before you continue.
+                    </div>
+                    <h3>Next Steps</h3>
+                    <ol>
+                        <li>Tell us about your deal by completing this page.</li>
+                        <li>Click the link at the bottom of the page to view the buyers who will see your deal (FREE)</li>
+                        <li>If satisfied, pay $3 to send your deal to all our buyers.</li>
+                        <li>Respond to e-mails from buyers to sell your deal.</li>
+                    </ol>
+                    <br/><br/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-5">
+                    <fieldset>
+                        <legend>Quick Facts</legend>
+                        <div class='col-xs-12'>
+                            <form class="form form-horizontal">
+                                <div class="form-group">
+                                    <label>Common Address <a ng-click="displayHelp('common_address_tip')"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                                    <div class="helpText" id="common_address_tip">An address that is used for mailings, but can change if the street name changes.</div>
+                                    <input type="text" ng-model="property.street" class="form-control" placeholder="123 Main St; Anytown, ST 12345"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>ATN or Legal Description <a ng-click="displayHelp('atn_tip')"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                                    <div class="helpText" id="atn_tip">This is the property identifier that never changes, even if the city name changes or the street name changes. Get this value from the tax assessor's web site.</div>
+                                    <input type="text" ng-model="property.atn" class="form-control" placeholder=""/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Square Feet</label>
+                                    <input type="number" ng-model="property.sqft" class="form-control" value="0"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Bedrooms<br/><small>(Private rooms with a closet)</small></label>
+                                    <input type="number" ng-model="property.beds" class="form-control" value="0"/>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-4">
+                                        <div class="form-group">
+                                            <label>Full Bathrooms<br/><small>(shower, tub and toilet)</small></label>
+                                            <input type="number" ng-model="property.baths.full" class="form-control" value="0"/>
+                                        </div>
+                                    </div>
+                                    <div class='clearfix visible-xs'></div>
+                                    <div class="col-xs-6 col-sm-3 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <label>3/4-Bathrooms<br/><small>(shower and toilet)</small></label>
+                                            <input type="number" ng-model="property.baths.three_quarter" class="form-control" value="0"/>
+                                        </div>
+                                    </div>
+                                    <div class='clearfix visible-xs'></div>
+                                    <div class="col-xs-6 col-sm-3 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <label>1/2-Bathrooms<br/><small>(toilet only)</small></label>
+                                            <input type="number" ng-model="property.baths.half" class="form-control" value="0"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </fieldset>
+                </div>
+                <div class="col-xs-12 col-md-5 col-md-offset-1">
+                    <fieldset>
+                        <legend>Estimated Prices</legend>
+                        <div class='col-xs-12'>
+                            <form class="form form-horizontal">
+                                <div class="form-group">
+                                    <label>Market Value "As-Is" <a ng-click='displayHelp("as_is_tip")'><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                                    <div class='helpText' id='as_is_tip'>Price a buyer might pay, with no repairs, if marketed by a real estate agent for 12 months or more.</div>
+                                    <div class='input-group'>
+                                        <div class='input-group-addon'>$</div>
+                                        <input type="number" ng-model="property.pricing.as_is" class="form-control" value="0"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>ARV (After Repair Value) <a ng-click='displayHelp("arv_tip")'><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                                    <div class='helpText' id='arv_tip'>Price a buyer might pay after repairs if marketed by a real estate agent for just 3 months.</div>
+                                    <div class='input-group'>
+                                        <div class='input-group-addon'>$</div>
+                                        <input type="number" ng-model="property.pricing.arv" class="form-control" value="0"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Repair Cost <a ng-click='displayHelp("repair_cost_tip")'><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                                    <div class='helpText' id='repair_cost_tip'>Price to have a contractor make all repairs to convert house from "as-is" value to ARV value.</div>
+                                    <div class='input-group'>
+                                        <div class='input-group-addon'>$</div>
+                                        <input type="number" ng-model="property.pricing.repairs" class="form-control" value="0"/>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <fieldset>
+                        <legend>Video and Photo Verification</legend>
+                        <div class="form-group">
+                            <label>URLs to YouTube videos (one per line)</label>
+                            <p>Copy and paste the "share" url beneath your video. Do not use short URLs.</p>
+                            <textarea class="form-control" ng-model="property.videoURLs"></textarea>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <fieldset>
+                <legend>Deal Type</legend>
+                <div class='row'>
+                    <div class='col-xs-12'>
+                        <p>Select one deal type: Assignment or Double-Close. Descriptions appear below the selection</p>
+                    </div>
+
+                    <div class='col-xs-11 col-xs-offset-1 col-md-5 boxed' ng-class="{'bg-info':(property.deal_type=='assignment')}">
+                        <div class='form-group'>
+                            <div class='input-group'>
+                                <div class='input-group-addon'>
+                                    <input type='radio' name='deal_type' value="assignment" ng-model="property.deal_type" ng-class="{'bg-info':property.deal_type=='assignment'}"  />
+                                </div>
+                                <label class='form-control'>Assignment</label>
+                            </div>
+                        </div>
+                        <ul>
+                            <li>You have a signed contract to purchase a property</li>
+                            <li>Closing date is 7 or more days away</li>
+                            <li>You are selling the rights to the contract</li>
+                            <li>The buyer will close on the contract in your place</li>
+                            <li>You are paid an assignment fee (like a "finders fee") for negotiating the deal.</li>
+                        </ul>
+                    </div>
+                    <div class='visible-xs col-xs-12'><br/></div>
+                    <div class="col-xs-11 col-xs-offset-1 col-md-5 boxed" ng-class="{'bg-info':(property.deal_type=='double_close')}">
+                        <div class='form-group'>
+                            <div class='input-group'>
+                                <div class='input-group-addon'>
+                                    <input type='radio' name='deal_type' value="double_close" ng-model="property.deal_type" />
+                                </div>
+                                <label class='form-control'>Double-Close or Quick-Sale</label>
+                            </div>
+                        </div>
+                        <ul>
+                            <li>You closed on the property recently or you have owned it a long time</li>
+                            <li>The cash buyer is buying the property from you.</li>
+                            <li><b>Double-Close:</b> Your profit is the difference between the purchase price now and the price you paid before.
+                            </li>
+                            <li><b>Quick-Sale</b> You are not interested in profit. You are interested in getting rid of a problem property quickly.</li>
+                        </ul>
+                    </div>
+                </div>
+                <br/><br/>
+            </fieldset>
+
+            <fieldset ng-show="property.deal_type == 'assignment'">
+                <!-- Assignment Details -->
+                <legend>Assignment Details</legend>
+                <div class='col-xs-12 col-sm-5'>
+                    <div class="form-group">
+                        <label>Assignment Fee <a ng-click="displayHelp('assign_fee_tip')"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                        <div class="helpText" id="assign_fee_tip">The amount of money you will receive in addition to the purchase price.</div>
+                        <div class="input-group">
+                            <div class="input-group-addon">$</div>
+                            <input type="number" class="form-control" ng-model="property.assignment_detail.fee" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Purchase Price <a ng-click="displayHelp('assign_purchase_price_tip')"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                        <div class="helpText" id="assign_purchase_price_tip">The price you negotiated with the seller on your signed contract.</div>
+                        <div class="input-group">
+                            <div class="input-group-addon">$</div>
+                            <input type="number" class="form-control" ng-model="property.assignment_detail.contract_price" />
+                        </div>
+                    </div>
+                </div>
+                <div class='col-xs-12 col-sm-5 col-sm-offset-1'>
+                    <div class="form-group">
+                        <label>Closing Date</label>
+                        <input type="date" class="form-control" ng-model="property.assignment_detail.closing_date" />
+                    </div>
+                    <div class="form-group">
+                        <label>Title Company / Escrow Company Name</label>
+                        <input type="text" class="form-control" ng-model="property.assignment_detail.escrow.name" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Title Company / Escrow Company Website Url</label>
+                        <input type="url" class="form-control" ng-model="property.assignment_detail.escrow.url"  />
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset ng-show="property.deal_type == 'double_close'">
+                <legend>Double-Close / Quick-Sale Details</legend>
+                <div class='col-xs-12'>
+                    <!--Double-Close Details-->
+                    <div class="form-group">
+                        <label>Purchase Price <a ng-click="displayHelp('double_close_purchase_price_tip')"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                        <div class="helpText" id="double_close_purchase_price_tip">The price you want for your property.</div>
+                        <div class="input-group">
+                            <div class="input-group-addon">$</div>
+                            <input type="number" class="form-control" ng-model="property.double_close_detail.desired_price" />
+                        </div>
+                    </div>
+                    <div class='form-group'>
+                        <label>What is your best alternate option</label>
+                        <p>Tell us what we are up against. Think about how much it will cost you if you have to keep the property and it does not sell. Tell us what will happen if you can't find a buyer.</p>
+                        <textarea class='form-control' ng-model="property.double_close_detail.alternative_action" ></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Bottom Line <a ng-click="displayHelp('bottom_line_tip')"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                        <div class="helpText" id="bottom_line_tip">The price you would accept if the buyer can close in 7 days or less.</div>
+                        <div class="input-group">
+                            <div class="input-group-addon">$</div>
+                            <input type="number" class="form-control"  ng-model="property.double_close_detail.bottom_price" />
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Personal Touches</legend>
+                <div class="row">
+                    <div class="col-xs-12 col-md-5">
+                        <div class="form-group">
+                            <label>Property Details</label>
+                            <p>This form does not capture all aspects of a property. Tell us more here.</p>
+                            <textarea class="form-control" ng-model="property.description"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-5 col-md-offset-1">
+                        <div class="form-group">
+                            <label>About You</label>
+                            <p>Tell us about you. How long have you been an investor? How many properties have you sold before? The more you tell us about your experience, the easier it is for us to trust your numbers.</p>
+                            <textarea class="form-control" ng-model="property.about_seller"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+                <fieldset><legend>Move to Next Step</legend>
+                    <div class='col-xs-12 col-md-5 col-md-offset-1'>
+                        <a class='btn btn-primary' ng-click="advance( property )" >Next Step: See Buyer Count (free) --&gt;</a>
+                    </div>
+                </fieldset>
+            <div class='row'>
+                <br/><br/>
+            </div>
+            <div class="hidden">
+                <a id="nextPage" href="displayOffer.html"></a>
+            </div>
+        </div>
+    </body>
+</html>
